@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2008
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Source", "E:\02-04-18\Source", "{39BA4704-9F5A-427B-AEBA-947734AB8450}"
+	ProjectSection(WebsiteProperties) = preProject
+		SccProjectName = ""$/supreme", BAAAAAAA"
+		SccAuxPath = ""
+		SccLocalPath = "."
+		SccProvider = "MSSCCI:Microsoft Visual SourceSafe"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50744"
+		Debug.AspNetCompiler.PhysicalPath = "E:\02-04-18\Source\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50744\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50744"
+		Release.AspNetCompiler.PhysicalPath = "E:\02-04-18\Source\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50744\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50744"
+		SlnRelativePath = "E:\02-04-18\Source\"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39BA4704-9F5A-427B-AEBA-947734AB8450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39BA4704-9F5A-427B-AEBA-947734AB8450}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CDB04539-A841-427B-BAD2-AE5B72EB6245}
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccWebProject0 = true
+		SccProjectUniqueName0 = E:\\02-04-18\\Source
+		SccProjectName0 = \u0022$/supreme\u0022,\u0020BAAAAAAA
+		SccLocalPath0 = E:\\02-04-18\\Source
+		SccProjectEnlistmentChoice0 = 2
+		SccLocalPath1 = .
+	EndGlobalSection
+EndGlobal

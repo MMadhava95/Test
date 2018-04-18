@@ -1,0 +1,178 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="emp.master.cs" Inherits="emp" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>SNPL PROJECTS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link href="../css/w3.css" rel="stylesheet" />
+    <%--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />--%>
+    <link rel="stylesheet" href="../lib/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="../lib/select2/select2.css" />
+    <link rel="stylesheet" href="../lib/dropzone/dropzone.css" />
+    <link rel="stylesheet" href="../lib/jquery-toggles/toggles-full.css" />
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="../lib/timepicker/jquery.timepicker.css" />
+    <link rel="stylesheet" href="../lib/bootstrapcolorpicker/css/bootstrap-colorpicker.css" />
+    <link rel="stylesheet" href="../lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" />
+
+    <link rel="stylesheet" href="../css/quirk.css" />
+	<link rel="stylesheet" href="../css/w3.css" />
+
+    <!-- Favicon link -->
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
+
+    <script src="../lib/modernizr/modernizr.js"></script>
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <div class="headerpanel">
+                <div class="logopanel">
+                    <h2><a href="Dashboard.aspx">
+                        <img src="../images/logo.png" /></a></h2>
+                </div>
+                <div class="headerbar">
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                    <div class="header-right">
+                        <ul class="headermenu">
+                            <li>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-logged" data-toggle="dropdown">
+                                        <asp:Label ID="empprofile" runat="server" Text="Employee"></asp:Label>
+
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="Profile.aspx"><i class="fa fa-user"></i>My Profile</a></li>
+                                        <li><a href="../Operations/change-password.aspx"><i class="fa fa-key"></i>Change Password  </a></li>
+                                        <li><a href="../Operations/Need-Help.aspx"><i class="glyphicon glyphicon-question-sign"></i>Need Help ?</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <button id="chatview" runat="server" class="btn btn-chat alert-notice" causesvalidation="false" onserverclick="btnLogout_Click">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="leftpanel">
+                <div class="leftpanelinner">
+                    <div class="tab-content">
+                        <div id="Employee" runat="server" visible="true">
+                            <h5 class="sidebar-title">Main Menu</h5>
+                            <ul class="nav nav-pills nav-stacked nav-quirk">
+                                <li id="liEmpDashboard"><a href="Dashboard.aspx"><i class="fa fa-home"></i><span>Employee Home</span></a></li>
+                                <li class="nav-parent" id="liExpenses">
+                                    <a href="#"><i class="fa fa-rupee"></i><span>Expenses</span></a>
+                                    <ul class="children">
+                                        <li id="liApplycliam"><a href="ApplyClaim.aspx"><span>Apply Claim</span></a></li>
+                                        <li id="liApplyAdvpay"><a href="ApplyAdvancepay.aspx"><span>Apply AdvancePay</span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-parent" id="liticket">
+                                    <a href="#"><i class="fa fa-ticket"></i><span>Ticket</span></a>
+                                    <ul class="children">
+                                        <li id="licreateticket"><a href="create-ticket.aspx"><span>Create Ticket</span></a></li>
+                                        <li id="litickethistory"><a href="history.aspx"><span>Ticket History</span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-parent" id="liAssets">
+                                    <a href="#"><i class="fa fa-building"></i><span>Employee Assets</span></a>
+                                    <ul class="children">
+                                        <li id="liEmpCmpnyAssets"><a href="company-assets.aspx"><span>company Assets</span></a></li>
+                                        <li id="liEmpPenReqAssets"><a href="EmployeePenReqAssets.aspx"><span>Pending & Requested Assets</span></a></li>
+                                        <li id="liEmpSoftAssets"><a href="EmployeeSoftwareAssets.aspx"><span>Software Assets</span></a></li>
+                                        <li id="liEmpHardAssets"><a href="EmployeeHardwareAssets.aspx"><span>Hardware Assets</span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-parent" id="lilearning">
+                                    <a href="#"><i class="fa fa-leanpub"></i><span>Learning</span></a>
+                                    <ul class="children">
+                                        <li id="licourselist"><a href="courselist.aspx"><span>Course List</span></a></li>
+                                        <li id="limycourses"><a href="mycourses.aspx"><span>My Courses</span></a></li>
+                                    </ul>
+                                </li>
+
+                                <li id="lifaq">
+                                    <a href="faq.aspx"><i class="fa fa-question-circle"></i><span>FAQ</span></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="Approver" runat="server" visible="true">
+                            <h5 class="sidebar-title">Main Menu</h5>
+                            <ul class="nav nav-pills nav-stacked nav-quirk">
+                                <li id="liapproverDashboard"><a href="ApproverDashboard.aspx"><i class="fa fa-home"></i><span>Approver Home</span></a></li>
+                                <li class="nav-parent" id="liapproverExpenses">
+                                    <a href="#"><i class="fa fa-rupee"></i><span>Expenses</span></a>
+                                    <ul class="children">
+                                        <li id="liprocessclaim"><a href="Processclaim.aspx" id="processclaim"><span>Process Claim</span></a></li>
+                                        <li id="liprocessadvpay"><a href="ProcessAdvancepay.aspx" id="processpay"><span>Process AdvancePay</span></a></li>
+											 <li id="lireports"><a href="ApproverReports.aspx" id="reports"><span>Reports</span></a></li>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="nav-parent" id="liapproverticket">
+                                    <a href="#"><i class="fa fa-ticket"></i><span>Ticket</span></a>
+                                    <ul class="children">
+                                        <li id="lialltickets"><a href="../Operations/AllTickets.aspx" id="alltickets"><span>Tickets</span></a></li>
+                                        <li id="limytickets"><a href="../Operations/MyTickets.aspx" id="mytickets"><span>My Tickets</span></a></li>
+                                        <li id="liticketcharts"><a href="../Operations/AnalystCharts.aspx" id="ticketcharts"><span>Charts</span></a></li>
+                                        <li id="limyticketreports"><a href="../Operations/AnalystReports.aspx" id="ticketreports"><span>Reports</span></a></li>
+                                    </ul>
+                                </li>
+                                <li class="nav-parent" id="liapproverassets">
+                                    <a href="#"><i class="fa fa-institution"></i><span>Assets</span></a>
+                                    <ul class="children">
+                                        <li id="liapprovercompanyassets"><a href="company-assets.aspx" id="company"><span>Company Assets</span></a></li>
+                                        <li id="liapproverPendingassets"><a href="Pending-Assets.aspx" id="pending"><span>Pending Assets</span></a></li>
+                                        <li id="liapproverapporvedassets"><a href="Approved-assets.aspx" id="approved"><span>Approved Assets</span></a></li>
+                                        <li id="liapproverRejectedassets"><a href="Rejected-assets.aspx" id="reject"><span>Rejected Assets</span></a></li>
+                                    </ul>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <asp:ContentPlaceHolder ID="cphBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
+    </form>
+    <script src="../lib/jquery/jquery.js"></script>
+    <script src="../lib/jquery-ui/jquery-ui.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.js"></script>
+    <script src="../lib/jquery-autosize/autosize.js"></script>
+    <script src="../lib/datatables/jquery.dataTables.js"></script>
+    <script src="../lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="../lib/select2/select2.js"></script>
+    <script src="../lib/jquery-toggles/toggles.js"></script>
+    <script src="../lib/jquery.gritter/jquery.gritter.js"></script>
+
+    <script src="../lib/jquery-maskedinput/jquery.maskedinput.js"></script>
+    <script src="../lib/timepicker/jquery.timepicker.js"></script>
+    <script src="../lib/dropzone/dropzone.js"></script>
+    <script src="../lib/bootstrapcolorpicker/js/bootstrap-colorpicker.js"></script>
+
+    <script src="../js/quirk.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>

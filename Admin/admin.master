@@ -1,0 +1,155 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="admin.master.cs" Inherits="emp" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link rel="stylesheet" href="../lib/jquery-ui/jquery-ui.css" />
+    <link rel="stylesheet" href="../lib/select2/select2.css" />
+    <link rel="stylesheet" href="../lib/dropzone/dropzone.css" />
+    <link rel="stylesheet" href="../lib/jquery-toggles/toggles-full.css" />
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="../lib/timepicker/jquery.timepicker.css" />
+    <link rel="stylesheet" href="../lib/bootstrapcolorpicker/css/bootstrap-colorpicker.css" />
+    <link rel="stylesheet" href="../lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.css" />
+
+    <link rel="stylesheet" href="../css/quirk.css" />
+
+    <script src="../lib/modernizr/modernizr.js"></script>
+
+    <!-- Handlers for sw and hw -->
+    <script src="../Handlers/AutoSearchJSandStyles/AutoJS1.js" type="text/javascript"></script>
+    <script src="../Handlers/AutoSearchJSandStyles/AutoSearchjs2.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="../Handlers/AutoSearchJSandStyles/AutosearchStyles.css" type="text/css" />
+
+    <!-- Favicon link -->
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png" />
+    
+
+    <asp:ContentPlaceHolder ID="cphHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <div class="headerpanel">
+                <div class="logopanel">
+                    <h2><a href="AdminDashboard.aspx">
+                        <img src="../images/logo.png" /></a></h2>
+                </div>
+                <div class="headerbar">
+                    <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+                    <div class="header-right">
+                        <ul class="headermenu">
+                            <li>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-logged" data-toggle="dropdown">
+                                        <asp:Label ID="adminprofile" runat="server" Text="Admin"></asp:Label>
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="AdminProfile.aspx"><i class="fa fa-user"></i>My Profile</a></li>
+                                        <li><a href="../Admin/admin-change-password.aspx"><i class="fa fa-key"></i>Change Password  </a></li>
+                                        <li><a href="#"><i class="glyphicon glyphicon-question-sign"></i>Need Help ?</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <button id="chatview" runat="server" class="btn btn-chat alert-notice" causesvalidation="false" onserverclick="btnLogout_Click">
+                                    <i class="glyphicon glyphicon-log-out"></i>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="leftpanel">
+                <div class="leftpanelinner">
+                    <div class="tab-content">
+                        <h5 class="sidebar-title">Main Menu</h5>
+                        <ul class="nav nav-pills nav-stacked nav-quirk">
+                            <li id="liadminhome"><a href="AdminDashboard.aspx"><i class="fa fa-home"></i><span>Admin Home</span></a></li>
+                            <li class="nav-parent" id="liadminexpenses">
+                                <a href="#"><i class="fa fa-rupee"></i><span>Expenses</span></a>
+                                <ul class="children">
+                                    <li id="liadminclaimlist"><a href="ViewClaims.aspx"><span>Claims List</span></a></li>
+									<li id="liadminersemp"><a href="ersEmployee.aspx"><span>Employee</span></a></li>
+                                    <li id="liadminersapprover"><a href="ersApprover.aspx"><span>Approver</span></a></li>
+                                    <li id="liadmineligibility"><a href="Eligibility.aspx"><span>Eligibility</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-parent" id="liadmintickets">
+                                <a href="#"><i class="fa fa-ticket"></i><span>Ticket</span></a>
+                                <ul class="children">
+                                    <li id="liadminalltickets"><a href="../Admin/AllTicketsAdmin.aspx">All Tickets</a></li>
+                                    <li id="liticketcharts"><a href="../Admin/AdminCharts.aspx" id="ticketcharts"><span>Charts</span></a></li>
+                                    <li id="limyticketreports"><a href="../Admin/AdminReports.aspx" id="ticketreports"><span>Reports</span></a></li>
+                                    
+                                </ul>
+                            </li>
+                            <li class="nav-parent" id="liadminassets">
+                                <a href="#"><i class="fa fa-building"></i><span>Assets</span></a>
+                                <ul class="children">
+                                    <li id="liadminsw"><a href="../Admin/Software-Assets.aspx">Software Assets</a></li>
+                                    <li id="liadminhw"><a href="../Admin/Hardware-Assets.aspx">Hardware Assets</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-parent" id="lilearning">
+                                <a href="#"><i class="fa fa-leanpub"></i><span>Learning</span></a>
+                                <ul class="children">
+                                    <%--<li id="liadminaddcourse"><a href="AddCourse.aspx"><span>Add Course</span></a></li>--%>
+                                    <li id="liadminviewcourse"><a href="ViewCourses.aspx"><span>View Course</span></a></li>
+                                    <li id="liadminuploadcontent"><a href="UploadContent.aspx"><span>Upload Content</span></a></li>
+                                    <li id="liadmineditcontent"><a href="EditContent.aspx"><span>Edit Content</span></a></li>
+                                    <%--<li id="liadminassessment"><a href="Assessment.aspx"><span>Assessment</span></a></li>--%>
+                                    <li id="liadminreport"><a href="LMSReports.aspx"><span>Reports</span></a></li>
+                                </ul>
+                            </li>
+							<li class="nav-parent" id="liReports">
+                                <a href="#"><i class="fa fa-list"></i><span>Reports</span></a>
+                                <ul class="children">
+                                    <li id="liadminreports"><a href="../Admin/Asset-Reports.aspx">Asset Reports</a></li>
+                                    <li id="liers"><a href="ERSReports.aspx"><span>Expenses</span></a></li>
+                                    <li id="litms"><a href="TMSReports.aspx"><span>Ticket</span></a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <asp:ContentPlaceHolder ID="cphBody" runat="server">
+            </asp:ContentPlaceHolder>
+        </section>
+    </form>
+    <script src="../lib/jquery/jquery.js"></script>
+    <script src="../lib/jquery-ui/jquery-ui.js"></script>
+    <script src="../lib/bootstrap/js/bootstrap.js"></script>
+    <script src="../lib/jquery-autosize/autosize.js"></script>
+    <script src="../lib/datatables/jquery.dataTables.js"></script>
+    <script src="../lib/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+    <script src="../lib/select2/select2.js"></script>
+    <script src="../lib/jquery-toggles/toggles.js"></script>
+    <script src="../lib/jquery.gritter/jquery.gritter.js"></script>
+
+    <script src="../lib/jquery-maskedinput/jquery.maskedinput.js"></script>
+    <script src="../lib/timepicker/jquery.timepicker.js"></script>
+    <script src="../lib/dropzone/dropzone.js"></script>
+    <script src="../lib/bootstrapcolorpicker/js/bootstrap-colorpicker.js"></script>
+
+    <script src="../js/quirk.js"></script>
+
+
+    <asp:ContentPlaceHolder ID="cphFooter" runat="server">
+    </asp:ContentPlaceHolder>
+</body>
+</html>
